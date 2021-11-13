@@ -62,7 +62,5 @@ for i in range(len(data)):
 
 device.tags.append(deviceTag)
 
-with open('result.json', 'w') as outfile:
-    json.dump(device.toJSON(), outfile)
-
+#save data to json file a print it
 print(device.toJSON())

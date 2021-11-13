@@ -12,8 +12,11 @@ class Device:
         self.tags = tags
 
     def toJSON(self):
-        return json.dumps(self, default=lambda o: o.__dict__,
-                          sort_keys=True, indent=4)
+        with open('result.json', 'w') as outfile:
+            obj = json.dumps(self, default=lambda o: o.__dict__,
+                             sort_keys=True, indent=4)
+            json.dump(obj, outfile)
+        return obj
 
 
 class DeviceTag:
