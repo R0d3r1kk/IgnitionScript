@@ -38,15 +38,15 @@ def checkDataType(dataTye, dataBit, offset):
 
 def replaceDataType(dataTye):
     if dataTye == "TWO_BYTE_INT_UNSIGNED":
-        return "INT4"
+        return "Int4"
     if dataTye == "TWO_BYTE_INT_SIGNED":
-        return "INT2"
+        return "Int2"
     if dataTye == "BINARY":
-        return "BOOLEAN"
+        return "Boolean"
     if dataTye == "EIGHT_BYTE_INT_UNSIGNED":
-        return "INT8"
+        return "Int8"
     if dataTye == "EIGHT_BYTE_INT_SIGNED":
-        return "INT8"
+        return "Int8"
 
 
 # cycle csv array rows
@@ -61,5 +61,8 @@ for i in range(len(data)):
     deviceTag.tags.append(tag)
 
 device.tags.append(deviceTag)
+
+with open('result.json', 'w') as outfile:
+    json.dump(device.toJSON(), outfile)
 
 print(device.toJSON())
